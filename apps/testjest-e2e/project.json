@@ -1,0 +1,28 @@
+{
+  "root": "apps/testjest-e2e",
+  "sourceRoot": "apps/testjest-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/testjest-e2e/cypress.json",
+        "devServerTarget": "testjest:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "testjest:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/testjest-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["testjest"]
+}

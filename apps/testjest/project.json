@@ -1,0 +1,80 @@
+{
+  "root": "apps/testjest",
+  "sourceRoot": "apps/testjest/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/testjest",
+        "index": "apps/testjest/src/index.html",
+        "baseHref": "/",
+        "main": "apps/testjest/src/main.tsx",
+        "polyfills": "apps/testjest/src/polyfills.ts",
+        "tsConfig": "apps/testjest/tsconfig.app.json",
+        "assets": ["apps/testjest/src/favicon.ico", "apps/testjest/src/assets"],
+        "styles": ["apps/testjest/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/testjest/src/environments/environment.ts",
+              "with": "apps/testjest/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "testjest:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "testjest:build:development"
+        },
+        "production": {
+          "buildTarget": "testjest:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/testjest/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/testjest"],
+      "options": {
+        "jestConfig": "apps/testjest/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
