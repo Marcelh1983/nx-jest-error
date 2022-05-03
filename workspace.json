@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "data": "libs/data",
     "testjest": "apps/testjest",
     "testjest-e2e": "apps/testjest-e2e"
   }

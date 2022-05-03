@@ -5,6 +5,7 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
+    "build-prod": "nx build --prod",
     "test": "nx test"
   },
   "private": true,
@@ -13,6 +14,7 @@
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "regenerator-runtime": "0.13.7",
+    "rx-basic-store": "^1.2.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
