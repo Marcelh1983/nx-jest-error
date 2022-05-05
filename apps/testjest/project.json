@@ -1,5 +1,4 @@
 {
-  "root": "apps/testjest",
   "sourceRoot": "apps/testjest/src",
   "projectType": "application",
   "targets": {
